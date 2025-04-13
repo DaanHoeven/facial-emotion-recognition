@@ -17,7 +17,7 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Define the model architecture
 class FacialExpressionModel(nn.Module):
-    def __init__(self, num_classes=7):
+    def __init__(self, num_classes=6):
         super(FacialExpressionModel, self).__init__()
         
         # First Convolutional Block
@@ -89,7 +89,7 @@ class FacialExpressionModel(nn.Module):
         x = self.output(x)
         return x
 
-EMOTIONS = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
+EMOTIONS = ["Angry", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
 
 # Load available models
 MODEL_DIR = "./models"
