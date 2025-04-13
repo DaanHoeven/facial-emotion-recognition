@@ -17,3 +17,13 @@ Accuracy of happy: 94.96%
 Accuracy of neutral: 83.72%
 Accuracy of sad: 75.68%
 Accuracy of surprise: 90.09%
+
+200 epochs:
+
+Final Accuracy on the validation set: 85.72%
+Accuracy of angry: 82.71%
+Accuracy of fear: 72.99%
+Accuracy of happy: 96.44%
+Accuracy of neutral: 86.76%
+Accuracy of sad: 76.82%
+Accuracy of surprise: 92.22%
