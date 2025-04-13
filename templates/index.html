@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facial Emotion Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Upload an image</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label>Select model:</label>
+        <select name="model">
+            {% for m in models %}
+                <option value="{{ m }}">{{ m }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="file" name="image">
+        <button type="submit">Predict</button>
+    </form>
+
+    <h1>Live webcam</h1>
+    <a href="/webcam_feed">Open Live Webcam Prediction</a>
+</body>
+</html>

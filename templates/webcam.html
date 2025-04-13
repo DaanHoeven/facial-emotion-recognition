@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webcam Live Emotion Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='webcam.css') }}">
+</head>
+<body>
+    <h1>Live Emotion Detection</h1>
+
+    <label>Select model:</label>
+    <select id="modelSelect">
+        {% for m in models %}
+            <option value="{{ m }}">{{ m }}</option>
+        {% endfor %}
+    </select>
+
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+            video.srcObject = stream;
+        });
+
+        function sendFrame() {
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const model = document.getElementById('modelSelect').value;
+            const data = canvas.toDataURL('image/jpeg');
+
+            fetch('/live_predict', {
+                method: 'POST',
+                body: new URLSearchParams({ image: data, model: model })
+            })
+            .then(res => res.json())
+            .then(faces => {
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                faces.forEach(face => {
+                    let [x, y, w, h] = face.box;
+                    ctx.strokeStyle = 'lime';
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(x, y, w, h);
+                    ctx.fillStyle = 'lime';
+                    ctx.fillText(face.emotion, x, y - 10);
+                });
+            });
+
+            requestAnimationFrame(sendFrame);
+        }
+
+        video.addEventListener('play', () => {
+            requestAnimationFrame(sendFrame);
+        });
+    </script>
+</body>
+</html>

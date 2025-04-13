@@ -14,3 +14,7 @@ kagglehub==0.3.9
 ipykernel==6.29.5
 seaborn==0.13.2
 split-folders==0.5.1
+flask==3.1.0
+nbformat==5.10.4
+nbconvert==7.16.6
+opencv-python==4.11.0.86
