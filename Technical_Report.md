@@ -81,26 +81,25 @@ I trained the model for different numbers of epochs:
 | Epochs | Validation Accuracy |
 | ------ | ------------------- |
 | 100    | 78.27%              |
-| 150    | 82.57%              |
 | 200    | 81.41%              |
 | 292    | 85.98%              |
 
 ### Per-Class Performance
 
-| Emotion  | 100 Epochs | 150 Epochs | 200 Epochs | 292 Epochs |
-| -------- | ---------- | ---------- | ---------- | ---------- |
-| Angry    | 66.35%     | 74.69%     | 73.44%     | 81.25%     |
-| Fear     | 65.13%     | 68.27%     | 65.82%     | 76.33%     |
-| Happy    | 93.10%     | 94.96%     | 94.74%     | 96.27%     |
-| Neutral  | 76.97%     | 83.72%     | 82.89%     | 83.14%     |
-| Sad      | 71.47%     | 75.68%     | 73.84%     | 80.16%     |
-| Surprise | 87.20%     | 90.09%     | 88.96%     | 93.10%     |
+| Emotion  | 100 Epochs | 200 Epochs | 292 Epochs |
+| -------- | ---------- | ---------- | ---------- |
+| Angry    | 66.35%     | 73.44%     | 81.25%     |
+| Fear     | 65.13%     | 65.82%     | 76.33%     |
+| Happy    | 93.10%     | 94.74%     | 96.27%     |
+| Neutral  | 76.97%     | 82.89%     | 83.14%     |
+| Sad      | 71.47%     | 73.84%     | 80.16%     |
+| Surprise | 87.20%     | 88.96%     | 93.10%     |
 
 ### Main Findings
 
 1. My model is really good at finding "Happy" and "Surprise" emotions (more than 93% correct)
 2. "Fear" was the hardest to detect (only 76.33% correct in best model)
-3. After 150 epochs, there was actually a slight decrease in performance at 200 epochs before improving again
+3. Training for more epochs generally improved performance, with significant gains between 200 and 292 epochs
 4. Some emotions got easier to detect with more training, but some didn't improve much
 
 ## 5. What I Did
