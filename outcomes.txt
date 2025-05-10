@@ -20,13 +20,13 @@ Accuracy of surprise: 90.09%
 
 200 epochs:
 
-Final Accuracy on the validation set: 85.72%
-Accuracy of angry: 82.71%
-Accuracy of fear: 72.99%
-Accuracy of happy: 96.44%
-Accuracy of neutral: 86.76%
-Accuracy of sad: 76.82%
-Accuracy of surprise: 92.22%
+Final Accuracy on the validation set: 81.41%
+Accuracy of angry: 73.44%
+Accuracy of fear: 65.82%
+Accuracy of happy: 94.74%
+Accuracy of neutral: 82.89%
+Accuracy of sad: 73.84%
+Accuracy of surprise: 88.96%
 
 292 epochs:
 
